@@ -412,7 +412,7 @@ class Game
     {
       if (enemies[i].getX() == player1.getX() && enemies[i].getY() == player1.getY())
       {
-        //We have a collision - decrease playerOne life and "respawn" enemy in a random position
+        //We have a collision - decrease playerOne life
         --player1Life;
         if (player1Life <= 0)
         {
@@ -426,7 +426,7 @@ class Game
       }
       if (enemies[i].getX() == player2.getX() && enemies[i].getY() == player2.getY())
       {
-        //We have a collision - decrease playerTwo life and "respawn" enemy in a random position
+        //We have a collision - decrease playerTwo life
         --player2Life;
         if (player2Life <= 0)
         {
