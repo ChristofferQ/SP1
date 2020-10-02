@@ -100,7 +100,8 @@ class Game
     updatePlayer2();
     updateEnemies1();
     updateEnemies2();
-    updateFood();
+    updateFood1();
+    updateFood2();
     checkForCollisions();
     clearBoard();
     populateBoard();
@@ -277,7 +278,7 @@ class Game
     }
   }
 
-  private void updateFood()
+  private void updateFood1()
   {
     for (int i = 0; i < food.length; ++i)
     {
@@ -286,11 +287,11 @@ class Game
       if (rnd.nextInt(3) < 2)
       {
         //We avoid
-        int dx = player1.getX() - food[i].getX();
-        int dy = player1.getY() - food[i].getY();
-        if (abs(dx) > abs(dy))
+        int dx1 = player1.getX() - food[i].getX();
+        int dy1 = player1.getY() - food[i].getY();
+        if (abs(dx1) > abs(dy1))
         {
-          if (dx > 0)
+          if (dx1 > 0)
           {
             //Player is to the right
             food[i].moveLeft();
@@ -299,7 +300,62 @@ class Game
             //Player is to the left
             food[i].moveRight();
           }
-        } else if (dy > 0)
+        } else if (dy1 > 0)
+        {
+          //Player is down;
+          food[i].moveUp();
+        } else
+        {//Player is up;
+          food[i].moveDown();
+        }
+      } else
+      {
+        //We move randomly
+        int move = rnd.nextInt(4);
+        if (move == 0)
+        {
+          //Move right
+          food[i].moveRight();
+        } else if (move == 1)
+        {
+          //Move left
+          food[i].moveLeft();
+        } else if (move == 2)
+        {
+          //Move up
+          food[i].moveUp();
+        } else if (move == 3)
+        {
+          //Move down
+          food[i].moveDown();
+        }
+      }
+    }
+  }
+
+  private void updateFood2()
+  {
+    for (int i = 0; i < food.length; ++i)
+    {
+      //Should we avoid or move randomly?
+      //2 out of 3 we will avoid..
+      if (rnd.nextInt(3) < 2)
+      {
+        //We avoid
+        int dx2 = player2.getX() - food[i].getX();
+        int dy2 = player2.getY() - food[i].getY();
+        if (abs(dx2) > abs(dy2))
+        {
+          if (dx2 > 0)
+          {
+            //Player is to the right
+            food[i].moveLeft();
+          } else
+          {
+            //Player is to the left
+            food[i].moveRight();
+          }
+        } else if (dy2 > 0)
         {
           //Player is down;
           food[i].moveUp();
