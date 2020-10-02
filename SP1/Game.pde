@@ -293,19 +293,19 @@ class Game
         {
           if (dx1 > 0)
           {
-            //Player is to the right
+            //Player1 is to the right
             food[i].moveLeft();
           } else
           {
-            //Player is to the left
+            //Player1 is to the left
             food[i].moveRight();
           }
         } else if (dy1 > 0)
         {
-          //Player is down;
+          //Player1 is down;
           food[i].moveUp();
         } else
-        {//Player is up;
+        {//Player1 is up;
           food[i].moveDown();
         }
       } else
@@ -348,19 +348,19 @@ class Game
         {
           if (dx2 > 0)
           {
-            //Player is to the right
+            //Player2 is to the right
             food[i].moveLeft();
           } else
           {
-            //Player is to the left
+            //Player2 is to the left
             food[i].moveRight();
           }
         } else if (dy2 > 0)
         {
-          //Player is down;
+          //Player2 is down;
           food[i].moveUp();
         } else
-        {//Player is up;
+        {//Player2 is up;
           food[i].moveDown();
         }
       } else
